@@ -1,0 +1,361 @@
+.container {
+    height: 202px;
+}
+
+i.logo {
+    margin-left: 91px;
+}
+
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #17171ed2;
+    height: 40px;
+    padding: 0 60px;
+    font-weight: 400;
+    font-size: 1.4rem;
+}
+.header-items {
+    list-style: none;
+    padding: 0 12px;
+    .head-title {
+        color: white;
+
+        &:hover {
+            color: var(--primary);
+        }
+    }
+    .head-icons {
+        color: white;
+        margin-right: 8px;
+
+        &:hover ~ .head-title {
+            transition-delay: 0.25s;
+            color: var(--primary);
+        }
+    }
+}
+
+// Navigation
+
+.nav-container {
+    height: 122px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 91px;
+}
+
+.nav-items {
+    position: static;
+    display: flex;
+    font-size: 2rem;
+    margin: 0 20px;
+    padding: 20px 0 0 0;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.nav-title {
+    text-align: center;
+    display: flex;
+    height: 80px;
+    align-items: center;
+    a {
+        color: black;
+    }
+}
+
+.nav-items:hover .nav-title a {
+    color: var(--primary);
+}
+
+.nav-items:hover .nav-icon {
+    transform: rotate(180deg);
+    color: var(--primary);
+}
+
+.nav-icon {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.nav-list {
+    cursor: default;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 152px;
+    background-color: #4c4c4c;
+    z-index: 35;
+    display: flex;
+    justify-content: space-around;
+
+    &:hover {
+        .nav-icon {
+            color: var(--primary);
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.nav-list-items {
+    cursor: pointer;
+    height: 375px;
+    width: 260px;
+    padding: 40px 0;
+    &:hover {
+        .list-title {
+            color: var(--primary);
+        }
+    }
+}
+
+.list-title {
+    text-align: center;
+    font-weight: 800;
+    color: white;
+}
+
+.list-banners {
+    opacity: 0.8;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.aboutUs {
+    cursor: pointer;
+}
+
+.search {
+    position: relative;
+    min-height: 100px;
+    min-width: 100px;
+    padding: 32px;
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.wrapper {
+    display: inline-block;
+}
+
+.search-btn {
+    cursor: pointer;
+    width: 31px;
+    height: 40px;
+}
+button.serch-btn {
+    background-color: transparent;
+    position: relative;
+    left: 32px;
+    z-index: 32;
+    pointer-events: none;
+}
+
+.search-place {
+    height: 40px;
+    padding-left: 50px;
+    padding-right: 25px;
+    outline-color: cadetblue;
+}
+
+.search-results {
+    overflow: scroll;
+    overflow-y: auto;
+    width: 300px;
+    max-height: 500px;
+    background-color: #fff;
+    padding: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Định nghĩa kiểu dáng của thanh cuộn */
+::-webkit-scrollbar {
+    width: 8px; /* Chiều rộng của thanh cuộn */
+}
+
+/* Định nghĩa hình dạng của thanh cuộn */
+::-webkit-scrollbar-thumb {
+    background-color: #888888af; /* Màu nền của thanh cuộn */
+    border-radius: 999px; /* Độ cong góc của thanh cuộn */
+}
+
+/* Định nghĩa màu nền của vùng chứa thanh cuộn */
+// ::-webkit-scrollbar-track {
+//     background-color: #f1f1f1;
+// }
+
+.search-title {
+    color: var(--primary);
+    padding: 8px;
+}
+
+.pro_result_info {
+    cursor: pointer;
+    padding: 8px;
+
+    &:hover {
+        background-color: #f1f1f1;
+        a {
+            color: var(--primary);
+        }
+    }
+
+    a {
+        color: black;
+    }
+}
+
+.deleteSearch {
+    display: inline-block;
+    position: absolute;
+    right: 32px;
+    align-items: center;
+    padding: 8px;
+    height: 40px;
+    cursor: pointer;
+}
+
+// Sidebar
+
+.slideBar-container {
+    display: flex;
+    height: 50px;
+    background-color: #f1f1f1;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.sideBar {
+    display: flex;
+    align-items: center;
+}
+
+.prev,
+.next {
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    opacity: 0.5;
+    background-color: transparent;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.slideContent {
+    min-width: 500px;
+    height: 36%;
+    position: relative;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+article {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    left: 0;
+    right: 0;
+    transition: var(--transition);
+    a {
+        color: black;
+        outline: none;
+    }
+}
+article.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+article.lastSlide {
+    transform: translateX(-100%);
+}
+article.nextSlide {
+    transform: translateX(100%);
+}
+
+.prev,
+.next {
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+// Cart & social buttons
+.cart {
+    z-index: 36;
+    position: fixed;
+    right: 0;
+    top: 232px;
+    width: 40px;
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary);
+
+    .value,
+    .icon {
+        cursor: pointer;
+        padding: 8px;
+        color: white;
+        opacity: 0.8;
+        font-size: 1.5rem;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.social {
+    z-index: 36;
+    position: fixed;
+    right: 0;
+    top: 330px;
+    width: 40px;
+    padding: 8px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: #4c4c4c;
+
+    .icons,
+    .face,
+    .ins,
+    .youtube {
+        cursor: pointer;
+        color: white;
+        font-size: 2rem;
+        opacity: 0.8;
+    }
+
+    .icons {
+        text-align: center;
+        &:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+    }
+}

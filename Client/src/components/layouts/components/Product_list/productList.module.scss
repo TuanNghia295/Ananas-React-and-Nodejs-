@@ -1,0 +1,273 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1200px;
+    margin: 0 132px;
+}
+.sideBar-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    grid-column: span 3;
+    padding: 0 10px;
+}
+
+.navbar {
+    margin: 39px 0px 15px 0px;
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+
+.navbar-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.navbar-items {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 8px;
+    &:hover a {
+        color: black;
+    }
+    a {
+        color: #999;
+    }
+}
+
+.navbar-items.active a {
+    color: black; /* Màu sắc khi nhấn và hover */
+}
+
+.divider {
+    position: absolute;
+    right: 20px;
+    left: 20px;
+    min-width: 50%;
+    height: 0.5px;
+    background-color: black;
+}
+
+.type-items {
+}
+
+.type-list {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.items {
+    padding: 4px 15px 4px 20px;
+    margin-top: 4px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--primary);
+        a {
+            color: white;
+        }
+    }
+}
+
+.items a {
+    color: black;
+    font-size: 1.6rem;
+}
+
+// Tree List
+
+.tree {
+    display: flex;
+    flex-direction: column;
+}
+
+.tree-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tree-list-items {
+}
+
+.tree-items-header {
+    display: flex;
+    padding: 10px;
+    position: relative;
+    font-size: 1.8rem;
+}
+
+.tree-items-header.toggle {
+}
+
+.title-tree {
+    display: flex;
+    padding: 0 10px;
+}
+
+.title-icon {
+    position: absolute;
+    right: 0;
+}
+
+.chevronUp,
+.chevronDown {
+    position: absolute;
+}
+
+.tree-items-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease;
+}
+
+.tree-items-content.visible {
+    max-height: 1000px; /* Adjust the maximum height of the content */
+}
+
+.tree-items-content-list {
+    margin: 10px 0;
+}
+
+.tree-items-content-list a {
+    color: black;
+    &:hover {
+        color: white;
+    }
+}
+
+.tree-items-content-list-items {
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    height: 35px;
+    cursor: pointer;
+    &:hover {
+        background-color: var(--primary);
+    }
+}
+
+.product-section-container {
+    grid-column: span 9;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.banner {
+    width: 100%;
+    margin-bottom: 20px;
+
+    img {
+        width: 100%;
+    }
+}
+
+.thumbnail {
+    width: 33.33%; /* Chia 3 cột trên một hàng */
+    padding: 10px;
+    text-align: center;
+}
+
+.pro-link {
+    position: relative;
+    display: block;
+}
+
+.pro-link img {
+    height: 284px;
+    width: 284px;
+}
+
+.image-wrapper {
+    position: relative;
+}
+
+.image2 {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.image-wrapper:hover .image2 {
+    display: block;
+}
+
+.buy-and-like {
+    z-index: 1;
+    width: 104%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 10px;
+
+    &:hover {
+        .buy-now a {
+            transition: var(--transition);
+            background-color: var(--primary);
+            color: white;
+        }
+    }
+}
+
+.buy-now a {
+    text-transform: uppercase;
+    color: var(--primary);
+    padding: 5px;
+    width: 100%;
+}
+
+.pro-info {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.pro-info p,
+.pro-info h5,
+.pro-info h4 {
+    margin-bottom: 5px;
+}
+
+.pro-list-divider {
+    width: 100%;
+    height: 1px;
+    border: 1px black dashed;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.buy-now {
+    width: 100%;
+    text-align: center;
+}
+
+.heart-icon {
+    position: absolute;
+    min-width: 50px;
+    height: 50px;
+    font-size: 4rem;
+    margin: 10px 0 8px 0;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    right: 0;
+}
+
+.outline-heart-icon,
+.solid-heart-icon {
+    position: absolute;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.solid-heart-icon {
+    // display: none;
+}
+

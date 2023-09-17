@@ -1,0 +1,155 @@
+[
+  {
+    "_id": 1,
+    "slug": "track-6-2.blues-low-top",
+    "name": "Track 6 2.Blues - Low Top",
+    "price": "1.190.000 VND",
+    "type": "New Arrival",
+    "color": "Navy Blue",
+    "image1": "https://ananas.vn/wp-content/uploads/Pro_A6T014_1-500x500.jpeg",
+    "image2": "https://ananas.vn/wp-content/uploads/Pro_A6T014_2-500x500.jpeg",
+    "createdAt": {
+      "$date": "2023-06-25T17:49:27.142Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-26T08:22:27.691Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": 2,
+    "slug": "track-6-2.blues-low-top-9h54e",
+    "name": "Track 6 2.Blues - Low Top",
+    "price": "1.290.000 VND",
+    "type": "New Arrival",
+    "color": "Bluewash",
+    "image1": "https://ananas.vn/wp-content/uploads/Pro_A6T015_1-500x500.jpeg",
+    "image2": "https://ananas.vn/wp-content/uploads/Pro_A6T015_2-500x500.jpeg",
+    "createdAt": {
+      "$date": "2023-06-25T17:54:38.693Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-26T08:22:33.236Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": 3,
+    "slug": "high-crew-socks-ananas-puppet-club",
+    "name": "High Crew Socks - Ananas Puppet Club",
+    "price": "119.000 VND",
+    "type": "New Arrival",
+    "color": "Tie Dye",
+    "image1": "https://ananas.vn/wp-content/uploads/Pro_AHCS002_1-500x500.jpeg",
+    "image2": "https://ananas.vn/wp-content/uploads/Pro_AHCS002_2-500x500.jpg",
+    "createdAt": {
+      "$date": "2023-06-25T17:56:24.012Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-26T08:13:44.958Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": 4,
+    "slug": "high-crew-socks-ananas-puppet-club-b3rw0",
+    "name": "High Crew Socks - Ananas Puppet Club",
+    "price": "119.000 VND",
+    "type": "New Arrival",
+    "color": "Tie Dye",
+    "image1": "https://ananas.vn/wp-content/uploads/Pro_AHCS003_1-500x500.jpeg",
+    "image2": "https://ananas.vn/wp-content/uploads/Pro_AHCS003_2-500x500.jpg",
+    "createdAt": {
+      "$date": "2023-06-25T17:57:18.134Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-26T08:22:18.444Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": 5,
+    "slug": "high-crew-socks-ananas-puppet-club-50ucx",
+    "name": "High Crew Socks - Ananas Puppet Club",
+    "price": "119.000 VND",
+    "type": "New Arrival",
+    "color": "Tie Dye",
+    "image1": "https://ananas.vn/wp-content/uploads/Pro_AHCS004_1-500x500.jpeg",
+    "image2": "https://ananas.vn/wp-content/uploads/Pro_AHCS004_2-500x500.jpg",
+    "createdAt": {
+      "$date": "2023-06-25T17:58:33.344Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-26T08:23:38.148Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": 6,
+    "slug": "urbas-corluray-mix-high-top",
+    "name": "Urbas Corluray Mix - High Top",
+    "price": "650.000 VND",
+    "type": "New Arrival",
+    "color": "Corluray Mix",
+    "image1": "https://ananas.vn/wp-content/uploads/Pro_AV00167_1-500x500.jpeg",
+    "image2": "https://ananas.vn/wp-content/uploads/Pro_AV00167_2-500x500.jpeg",
+    "createdAt": {
+      "$date": "2023-06-25T17:59:37.156Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-25T17:59:37.156Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": 7,
+    "slug": "urbas-corluray-mix-low-top",
+    "name": "Urbas Corluray Mix - Low Top",
+    "price": "610.000 VND",
+    "type": "New Arrival",
+    "color": "Corluray Mix",
+    "image1": "https://ananas.vn/wp-content/uploads/Pro_AV00165_1-500x500.jpeg",
+    "image2": "https://ananas.vn/wp-content/uploads/Pro_AV00165_2-500x500.jpeg",
+    "createdAt": {
+      "$date": "2023-06-25T18:01:00.985Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-25T18:01:00.985Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": 8,
+    "slug": "urbas-corluray-high-top-2",
+    "name": "Urbas Corluray - High Top",
+    "price": "510.000 VND ",
+    "type": "Online Only",
+    "color": "Grasses",
+    "image1": "https://ananas.vn/wp-content/uploads/pro_A61092_1_1-500x500.jpg",
+    "image2": "https://ananas.vn/wp-content/uploads/pro_A61092_7-500x500.jpg",
+    "createdAt": {
+      "$date": "2023-06-26T07:54:56.485Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-26T07:54:56.485Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": 9,
+    "slug": "urbas-lego-low-top",
+    "name": "Urbas Lego - Low Top",
+    "price": "330.000 VND ",
+    "type": "Online Only",
+    "color": "Deep Mimosa",
+    "image1": "https://ananas.vn/wp-content/uploads/pro_urbas_A61053_1-1-500x500.jpg",
+    "image2": "https://ananas.vn/wp-content/uploads/pro_urbas_A61053_2-1-500x500.jpg",
+    "createdAt": {
+      "$date": "2023-06-26T08:26:02.553Z"
+    },
+    "updatedAt": {
+      "$date": "2023-06-26T08:28:34.726Z"
+    },
+    "__v": 0
+  }
+]

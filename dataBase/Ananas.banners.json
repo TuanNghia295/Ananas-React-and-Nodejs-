@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "6497f8161ca4c1c8a06461f5"
+  },
+  "banner": "https://ananas.vn/wp-content/uploads/Banner_Clothing.jpg",
+  "slug": "banner1"
+},
+{
+  "_id": {
+    "$oid": "649fa68d7811c0f0dad35a27"
+  },
+  "banner": "https://ananas.vn/wp-content/uploads/Banner_Clothing.jpg",
+  "slug": "banner2"
+},
+{
+  "_id": {
+    "$oid": "649fa68d7811c0f0dad35a28"
+  },
+  "banner": "https://ananas.vn/wp-content/uploads/Banner_Clothing.jpg",
+  "slug": "banner3"
+}]

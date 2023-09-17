@@ -1,0 +1,103 @@
+<div class="mt-4">
+  <h3>Update Product</h3>
+  <form
+    class="mt-4"
+    method="post"
+    action="/product-list/{{dataCourse.id}}?_method=PUT"
+  >
+    <div class="mb-3">
+      <label for="name" class="form-label">Product Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        value="{{dataCourse.pro_name}}"
+        name="pro_name"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="pro_code" class="form-label">Product Code:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="pro_code"
+        value="{{dataCourse.pro_code}}"
+        name="pro_code"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="Price" class="form-label">Price:</label>
+      <input
+        class="form-control"
+        id="Price"
+        name="Price"
+        value="{{dataCourse.price}}"
+      ></input>
+    </div>
+
+    <div class="mb-3">
+      <label for="Type" class="form-label">Type</label>
+      <input
+        type="text"
+        class="form-control"
+        id="Type"
+        value="{{dataCourse.pro_type}}"
+        name="pro_type"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="color" class="form-label">Color:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="color"
+        value="{{dataCourse.color}}"
+        name="color"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="image1" class="form-label">Image1:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="image1"
+        value="{{dataCourse.image1}}"
+        name="image1"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="image2" class="form-label">Image2:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="image2"
+        value="{{dataCourse.image2}}"
+        name="image2"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="image3" class="form-label">Image3:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="image3"
+        value="{{dataCourse.image3}}"
+        name="image3"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="image4" class="form-label">Image4:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="image4"
+        value="{{dataCourse.image4}}"
+        name="image4"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
