@@ -56,7 +56,6 @@ function Button(props) {
                 delete properties[propKey];
             }
         });
-        console.log(properties);
     }
 
     return (

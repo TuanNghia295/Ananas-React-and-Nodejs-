@@ -1,5 +1,7 @@
 .wrapper {
-    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
     flex-direction: column;
 }
 .header {
@@ -7,7 +9,7 @@
 .content {
     margin: 30px 0;
     padding: 0 32px;
-    height: 1000px;
+    height: auto;
 }
 .footer {
 }

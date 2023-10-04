@@ -1,0 +1,121 @@
+.modal-background {
+    width: 100%;
+    height: 100%;
+    margin: 0 -164px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container {
+    position: relative;
+    width: 800px;
+    height: auto;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.pro-title {
+    position: absolute;
+    right: 0;
+
+    &:hover {
+        background-color: var(--primary);
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        h3 {
+            color: white;
+        }
+    }
+}
+
+.modal-container .pro-body {
+    flex: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.pro-img {
+    object-fit: cover;
+    width: 50%;
+    cursor: pointer;
+}
+
+.pro-form-info {
+    flex: 12;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 22px;
+    justify-content: center;
+}
+
+.pro-form-type {
+    margin-left: 12px;
+    font-size: 2rem;
+}
+
+.pro-form-name {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.pro-form-price {
+    font-weight: 600;
+    color: var(--primary);
+    margin: 6px 0;
+    margin-left: 12px;
+    font-size: 2.4rem;
+}
+
+.select-form-size {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.select-title {
+    margin-left: 12px;
+    font-weight: 500;
+}
+
+.sizeList {
+    position: relative;
+    margin-top: 12px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+}
+
+.size-items {
+    display: inline-block;
+    font-size: 1.8rem;
+    margin: 4px 4px 8px 12px;
+    height: 52px;
+    width: 25%;
+}
+
+.size-items-active {
+    background-color: var(--primary);
+    color: white;
+}
+
+.add-btn {
+    margin-top: 12px;
+    font-size: 1.8rem;
+    padding: 20px;
+    border-radius: 99px;
+}
