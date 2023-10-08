@@ -60,108 +60,114 @@ function ProductDetails() {
 
     return (
         <div className={cx('container')}>
-            <div className={cx('pro-name')}>
-                <p>{product.pro_name}</p>
-            </div>
-            <div className={cx('pro-content')}>
-                <aside className={cx('pro-image')}>
-                    <section className={cx('pro-items-slide')}>
-                        <ul className={cx('pro-items-list')}>
-                            <div className={cx('active-image')}>
-                                <img src={product.image1} alt={product.image1} />
-                            </div>
-                            {imageList.map((image, index) => {
-                                return (
-                                    <li className={cx('image-items')} key={index}>
-                                        {image && <img src={image} alt={image}></img>}
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    </section>
-                </aside>
-                <section className={cx('pro-info')}>
-                    <div className={cx('pro-header-info')}>
-                        <h2 className={cx('pro-name-color')}>
-                            {product.pro_name}-{product.color}
-                        </h2>
-                        <div className={cx('pro-code-and-condition')}>
-                            <p className={cx('pro-code')}>
-                                Mã sản phẩm: <strong>{product.pro_code}</strong>
-                            </p>
-                            <p className={cx('pro-condition')}>
-                                Tình trạng: <strong> {product.pro_type} </strong>
-                            </p>
-                        </div>
-                        <div className={cx('price')}>{product.price}</div>
-                        <div className={cx('color-container')}>
-                            <h1>color here</h1>
-                        </div>
-                        <div className={cx('options')}>
-                            <div className={cx('size')}>
-                                <h2>Select Size</h2>
-                                <ul className={cx('sizeList')}>
-                                    <li className={cx('size-items')}>
-                                        <Button outline disabled>
-                                            22
-                                        </Button>
-                                    </li>
-
-                                    <li className={cx('size-items')}>
-                                        <Button outline>22</Button>
-                                    </li>
-                                    <li className={cx('size-items')}>
-                                        <Button outline>22</Button>
-                                    </li>
-                                    <li className={cx('size-items')}>
-                                        <Button outline>22</Button>
-                                    </li>
-                                    <li className={cx('size-items')}>
-                                        <Button outline>22</Button>
-                                    </li>
-                                    <li className={cx('size-items')}>
-                                        <Button outline>22</Button>
-                                    </li>
-                                    <li className={cx('size-items')}>
-                                        <Button outline>22</Button>
-                                    </li>
-                                    <li className={cx('size-items')}>
-                                        <Button outline>22</Button>
-                                    </li>
-                                    <li className={cx('size-items')}>
-                                        <Button outline>22</Button>
-                                    </li>
-                                    <li className={cx('size-items')}>
-                                        <Button outline>22</Button>
-                                    </li>
-                                    <li className={cx('size-items')}>
-                                        <Button outline>22</Button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className={cx('add-to-cart')} type="submit">
-                            <Button className={cx('cart-title')}>
-                                <h1>Add to Bag</h1>
-                            </Button>
-                            <span
-                                className={cx('heart-icon')}
-                                onClick={() => handleChangeIcon(id, product)}
-                            >
-                                {iconChange ? (
-                                    <FontAwesomeIcon icon={faHeart} />
-                                ) : (
-                                    <AiOutlineHeart />
-                                )}
-                            </span>
-                        </div>
-                        <Button className={cx('payment')} type="submit">
-                            <h1>payment</h1>
-                        </Button>
-                        <span className={cx('warning')}>Vui lòng chọn Size/Số lượng phù hợp</span>
+            {product && (
+                <>
+                    <div className={cx('pro-name')}>
+                        <p>{product.pro_name}</p>
                     </div>
-                </section>
-            </div>
+                    <div className={cx('pro-content')}>
+                        <aside className={cx('pro-image')}>
+                            <section className={cx('pro-items-slide')}>
+                                <ul className={cx('pro-items-list')}>
+                                    <div className={cx('active-image')}>
+                                        <img src={product?.image1} alt={product?.image1} />
+                                    </div>
+                                    {imageList.map((image, index) => {
+                                        return (
+                                            <li className={cx('image-items')} key={index}>
+                                                {image && <img src={image} alt={image}></img>}
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </section>
+                        </aside>
+                        <section className={cx('pro-info')}>
+                            <div className={cx('pro-header-info')}>
+                                <h2 className={cx('pro-name-color')}>
+                                    {product.pro_name}-{product.color}
+                                </h2>
+                                <div className={cx('pro-code-and-condition')}>
+                                    <p className={cx('pro-code')}>
+                                        Mã sản phẩm: <strong>{product.pro_code}</strong>
+                                    </p>
+                                    <p className={cx('pro-condition')}>
+                                        Tình trạng: <strong> {product.pro_type} </strong>
+                                    </p>
+                                </div>
+                                <div className={cx('price')}>{product.price}</div>
+                                <div className={cx('color-container')}>
+                                    <h1>color here</h1>
+                                </div>
+                                <div className={cx('options')}>
+                                    <div className={cx('size')}>
+                                        <h2>Select Size</h2>
+                                        <ul className={cx('sizeList')}>
+                                            <li className={cx('size-items')}>
+                                                <Button outline disabled>
+                                                    22
+                                                </Button>
+                                            </li>
+
+                                            <li className={cx('size-items')}>
+                                                <Button outline>22</Button>
+                                            </li>
+                                            <li className={cx('size-items')}>
+                                                <Button outline>22</Button>
+                                            </li>
+                                            <li className={cx('size-items')}>
+                                                <Button outline>22</Button>
+                                            </li>
+                                            <li className={cx('size-items')}>
+                                                <Button outline>22</Button>
+                                            </li>
+                                            <li className={cx('size-items')}>
+                                                <Button outline>22</Button>
+                                            </li>
+                                            <li className={cx('size-items')}>
+                                                <Button outline>22</Button>
+                                            </li>
+                                            <li className={cx('size-items')}>
+                                                <Button outline>22</Button>
+                                            </li>
+                                            <li className={cx('size-items')}>
+                                                <Button outline>22</Button>
+                                            </li>
+                                            <li className={cx('size-items')}>
+                                                <Button outline>22</Button>
+                                            </li>
+                                            <li className={cx('size-items')}>
+                                                <Button outline>22</Button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className={cx('add-to-cart')} type="submit">
+                                    <Button className={cx('cart-title')}>
+                                        <h1>Add to Bag</h1>
+                                    </Button>
+                                    <span
+                                        className={cx('heart-icon')}
+                                        onClick={() => handleChangeIcon(id, product)}
+                                    >
+                                        {iconChange ? (
+                                            <FontAwesomeIcon icon={faHeart} />
+                                        ) : (
+                                            <AiOutlineHeart />
+                                        )}
+                                    </span>
+                                </div>
+                                <Button className={cx('payment')} type="submit">
+                                    <h1>payment</h1>
+                                </Button>
+                                <span className={cx('warning')}>
+                                    Vui lòng chọn Size/Số lượng phù hợp
+                                </span>
+                            </div>
+                        </section>
+                    </div>
+                </>
+            )}
         </div>
     );
 }

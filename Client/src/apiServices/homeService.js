@@ -30,11 +30,11 @@ export const getProductList = async () => {
 
 export const getProductDetail = async (id) => {
     try {
-        const productDetail = await request.get(`/product-detail/${id}`);
-        // console.log("ProductDetail", productDetail);
+        const productDetail = await request.get(`/product-detail?id=${id}`);
+        // console.log('ProductDetail', productDetail);
         return productDetail;
     } catch (error) {
-        console.log('Error when fetching productList API:', error);
+        console.log('Error when fetching productDetail API:', error);
         throw error;
     }
 };
@@ -47,6 +47,39 @@ export const searchProduct = async (pro_name) => {
         return response;
     } catch (error) {
         console.log('Error when searching product', error);
+        throw error;
+    }
+};
+
+// Hàm lấy ra danh sách tài khoản để kiểm tra đăng nhập đăng ký
+export const getAccountList = async (userName, password) => {
+    try {
+        const accountList = await request.get('/login');
+        // console.log('lay thanh cong danh sach account', accountList);
+        return accountList;
+    } catch (error) {}
+};
+
+// Hàm login
+export const login = async (acc_name, acc_pass) => {
+    try {
+        const loginData = {
+            acc_name,
+            acc_pass,
+        };
+        // Thực hiện yêu cầu POST đến máy chủ để kiểm tra đăng nhập
+        const response = await request.get('/login/info', loginData);
+        if (response.success) {
+            console.log('Đăng nhập thành công');
+            // Lưu thông tin đăng nhập vào local storage hoặc context nếu cần thiết
+        } else {
+            // Đăng nhập thất bại
+            console.log('Đăng nhập thất bại');
+            // Xử lý thông báo hoặc hiển thị lỗi
+        }
+        return response;
+    } catch (error) {
+        console.error('Lỗi khi gửi yêu cầu đăng nhập:', error);
         throw error;
     }
 };

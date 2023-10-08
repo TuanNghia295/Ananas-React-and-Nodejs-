@@ -3,7 +3,7 @@ import style from './Modal.module.scss';
 import Button from '../Button';
 import { useState } from 'react';
 const cx = classNames.bind(style);
-function Modal({ closeModal, children, onGetInfo, submit }) {
+const ProModal = ({ closeModal, children, onGetInfo, submit }) => {
     // Close the modal
     const [changeSize, setChangeSize] = useState(false);
 
@@ -84,6 +84,40 @@ function Modal({ closeModal, children, onGetInfo, submit }) {
             </div>
         </div>
     );
-}
+};
 
-export default Modal;
+const ConfirmModal = ({ closeModal, children }) => {
+    return (
+        <div
+            className={cx('modal-background')}
+            onClick={(e) => {
+                if (e.target.className === 'Modal_modal-background__8zeZe') {
+                    closeModal(false);
+                }
+            }}
+        >
+            <div className={cx('modal-container')}>
+                <div className={cx('pro-title')}>
+                    <Button onClick={() => closeModal(false)}>
+                        <h3>X</h3>
+                    </Button>
+                </div>
+                <div className={cx('pro-body-confirm')}>
+                    <div className={cx('pro-body-title')}>
+                        <h2>{children}</h2>
+                    </div>
+                    <div className={cx('confirm-body')}>
+                        <Button className={cx('yes-btn')}>
+                            <h3>Yes</h3>
+                        </Button>
+                        <Button className={cx('cancel-btn')} onClick={() => closeModal(false)}>
+                            <h3>Cancel</h3>
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export { ProModal, ConfirmModal };

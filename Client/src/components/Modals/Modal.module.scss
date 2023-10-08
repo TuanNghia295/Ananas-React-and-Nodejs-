@@ -119,3 +119,41 @@
     padding: 20px;
     border-radius: 99px;
 }
+
+// confirm-button
+.pro-body-confirm {
+    flex: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.confirm-body {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.pro-body-title {
+    flex: 12;
+    display: block;
+    padding: 24px;
+}
+
+.yes-btn {
+    background-color: rgb(65, 123, 211);
+    color: white;
+}
+
+.cancel-btn {
+    background-color: rgb(246, 56, 56);
+    color: white;
+}
+
+.yes-btn,
+.cancel-btn {
+    border-radius: 8px;
+    &:hover{
+        opacity: 0.8;
+    }
+}

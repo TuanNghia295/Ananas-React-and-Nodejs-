@@ -4,7 +4,7 @@ import Button from '~/components/Button';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faRecycle, faTrash } from '@fortawesome/free-solid-svg-icons';
-import Modal from '~/components/Modals/Modal';
+import { ConfirmModal, ProModal } from '~/components/Modals/Modal';
 
 const cx = classNames.bind(style);
 function Favourite() {
@@ -15,6 +15,7 @@ function Favourite() {
 
     // Select size
     const [changeSize, setChangeSize] = useState(false);
+    const [deleteProduct, setDeleteProduct] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const handleSelectSize = (product) => {
         setChangeSize(true);
@@ -56,7 +57,12 @@ function Favourite() {
                                     >
                                         <FontAwesomeIcon icon={faPen} />
                                     </Button>
-                                    <Button className={cx('delete')} outline small>
+                                    <Button
+                                        className={cx('delete')}
+                                        outline
+                                        small
+                                        onClick={() => setDeleteProduct(true)}
+                                    >
                                         <FontAwesomeIcon icon={faTrash} />
                                     </Button>
                                 </div>
@@ -67,7 +73,10 @@ function Favourite() {
                         </div>
                     );
                 })}
-                {changeSize && <Modal closeModal={setChangeSize} onGetInfo={selectedProduct} />}
+                {changeSize && <ProModal closeModal={setChangeSize} onGetInfo={selectedProduct} />}
+                {deleteProduct && (
+                    <ConfirmModal children={'Want To Delete?'} closeModal={setDeleteProduct} />
+                )}
             </section>
         </div>
     );
