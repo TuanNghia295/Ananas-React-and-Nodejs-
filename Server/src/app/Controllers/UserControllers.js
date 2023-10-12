@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 class UserController {
   // [GET] /usersAccount/checkAccount
@@ -30,14 +31,14 @@ class UserController {
       // Check user exist already or not
       const existingUser = await User.findOne({
         where: {
-          acc_name: formData.acc_name,
+          acc_email: formData.acc_email,
         },
       });
 
       if (existingUser) {
         return res
           .status(400)
-          .json({ error: "Người dùng với cùng acc_name đã tồn tại" });
+          .json({ error: "Người dùng với cùng acc_email đã tồn tại" });
       }
 
       // check password length larger than 6 or not
@@ -62,29 +63,37 @@ class UserController {
   // [Get] /users/infoUser
   async infoUser(req, res) {
     try {
-      const { userName, password } = req.body; // Lấy thông tin từ client
+      const { acc_email, acc_pass } = req.body; // Lấy thông tin từ client
       const user = await User.findOne({
-        where: { acc_name: userName },
+        where: { acc_email: acc_email },
       });
 
       if (user) {
         // So sánh mật khẩu được cung cấp từ client với mật khẩu đã băm và mã hóa từ cơ sở dữ liệu
-        const passwordMatch = await bcrypt.compare(password, user.acc_pass);
-
+        const passwordMatch = await bcrypt.compare(acc_pass, user.acc_pass);
         if (passwordMatch) {
-          // Mật khẩu hợp lệ, phản hồi về client
-          res.status(200).json({ message: "Mật khẩu hợp lệ" });
+          // Mật khẩu hợp lệ
+          res
+            .status(200)
+            .json({ success: true, message: "Đăng nhập thành công" });
         } else {
-          // Mật khẩu không hợp lệ, phản hồi về client
-          res.status(401).json({ error: "Mật khẩu không hợp lệ" });
+          // Mật khẩu không hợp lệ
+          res
+            .status(200)
+            .json({ success: false, message: "Mật khẩu không hợp lệ" });
         }
       } else {
         // Không tìm thấy tài khoản, phản hồi về client
-        res.status(404).json({ error: "Tài khoản không tồn tại" });
+        res
+          .status(200)
+          .json({ success: false, message: "Tài khoản không tồn tại" });
       }
     } catch (error) {
-      console.error("Lỗi khi lấy mật khẩu từ cơ sở dữ liệu:", error);
-      // res.status(500).json({ error: "Lỗi khi xử lý yêu cầu" }); // Phản hồi lỗi 500 nếu có lỗi xảy ra
+      console.log(req.body);
+      console.error("Lỗi khi từ cơ sở dữ liệu:", error);
+      res
+        .status(500)
+        .json({ success: false, message: "Lỗi khi xử lý yêu cầu" }); // Phản hồi lỗi 500 nếu có lỗi xảy ra
     }
   }
 }

@@ -61,21 +61,19 @@ export const getAccountList = async (userName, password) => {
 };
 
 // Hàm login
-export const login = async (acc_name, acc_pass) => {
+export const login = async (acc_email, acc_pass) => {
     try {
         const loginData = {
-            acc_name,
+            acc_email,
             acc_pass,
         };
         // Thực hiện yêu cầu POST đến máy chủ để kiểm tra đăng nhập
-        const response = await request.get('/login/info', loginData);
+        const response = await request.post('/login/info', loginData);
         if (response.success) {
-            console.log('Đăng nhập thành công');
-            // Lưu thông tin đăng nhập vào local storage hoặc context nếu cần thiết
+            request.get('/');
+            // alert('Login success');
         } else {
-            // Đăng nhập thất bại
-            console.log('Đăng nhập thất bại');
-            // Xử lý thông báo hoặc hiển thị lỗi
+            alert('Error login');
         }
         return response;
     } catch (error) {

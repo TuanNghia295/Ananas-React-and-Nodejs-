@@ -4,6 +4,7 @@ const path = require("path");
 const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 
 const app = express();
 const port = 3002;
@@ -31,6 +32,7 @@ app.use(
   })
 );
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(cors());

@@ -16,6 +16,7 @@ function Button(props) {
         rightIcon,
         className,
         onClick,
+        onSubmit,
         disabled = false,
         ...pastProps
     } = props;
@@ -34,6 +35,7 @@ function Button(props) {
     // Tạo ra biến thuộc tính để truyển vào Button (vd: onClick)
     const properties = {
         onClick,
+        onSubmit,
         ...pastProps,
     };
 

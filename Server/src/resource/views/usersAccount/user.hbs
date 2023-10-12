@@ -2,6 +2,16 @@
   <h3>Add User Account</h3>
   <form method="post" action="/login/storedUser">
     <div class="mb-3">
+      <label for="acc_email" class="form-label">Email:</label>
+      <input
+        type="email"
+        class="form-control"
+        id="acc_email"
+        name="acc_email"
+      />
+    </div>
+
+    <div class="mb-3">
       <label for="acc_name" class="form-label">Name:</label>
       <input type="text" class="form-control" id="acc_name" name="acc_name" />
     </div>
