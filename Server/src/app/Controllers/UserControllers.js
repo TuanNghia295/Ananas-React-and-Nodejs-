@@ -23,7 +23,8 @@ class UserController {
     res.render("usersAccount/user");
   }
 
-  // [POST] /usersAccount/storeUser
+  // [GET] /usersAccount/storeUser
+  // [Post] /login/create
   async storeUser(req, res, next) {
     try {
       const formData = req.body;
@@ -36,23 +37,30 @@ class UserController {
       });
 
       if (existingUser) {
-        return res
-          .status(400)
-          .json({ error: "Người dùng với cùng acc_email đã tồn tại" });
+        return res.status(200).json({
+          exist: true,
+          canCreate: false,
+          error: "Người dùng với cùng acc_email đã tồn tại",
+        });
       }
 
       // check password length larger than 6 or not
       if (formData.acc_pass.length < 6) {
-        return res
-          .status(400)
-          .json({ error: "Độ dài mật khẩu phải lớn hơn hoặc bằng 6" });
+        return res.status(200).json({
+          passInvalid: true,
+          canCreate: false,
+          error: "Độ dài mật khẩu phải lớn hơn hoặc bằng 6",
+        });
+      } else {
+        const result = res.status(200).json({
+          canCreate: true,
+          message: "Đăng ký thành công",
+        });
+        // Create a new user using your User model and the provided form data
+        await User.create(formData);
+
+        return result;
       }
-
-      // Create a new user using your User model and the provided form data
-      await User.create(formData);
-
-      // Redirect to a different route or send a response as needed
-      res.redirect("/"); // You can change this to the appropriate route
     } catch (error) {
       // Handle any errors during user creation
       console.error("Error inserting user:" + error);

@@ -15,29 +15,32 @@ i.logo {
     height: 40px;
     padding: 0 60px;
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 .header-items {
     list-style: none;
     padding: 0 12px;
-    .head-title {
-        color: white;
-
-        &:hover {
-            color: var(--primary);
-        }
-    }
-    .head-icons {
-        color: white;
-        margin-right: 8px;
-
-        &:hover ~ .head-title {
-            transition-delay: 0.25s;
-            color: var(--primary);
-        }
-    }
 }
 
+.head-title .items-header-title-link a {
+    color: #fff;
+}
+
+.head-title:hover .items-header-title-link a {
+    color: var(--primary);
+}
+
+.header-link .head-icons a,
+p,
+.head-user-icon {
+    color: white;
+    margin-right: 8px;
+}
+
+.header-link {
+    display: flex;
+    align-items: center;
+}
 // Navigation
 
 .nav-container {
@@ -358,4 +361,34 @@ article.nextSlide {
             color: var(--primary);
         }
     }
+}
+
+// Header data CSS
+.header-options-container {
+    display: block;
+    color: black;
+    background-color: white;
+    text-align: center;
+    min-width: 200px;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.header-options-items {
+    display: block;
+    padding: 10px 0;
+    font-size: 1.6rem;
+    &:hover {
+        background-color: #4c4c4cc8;
+        color: white;
+    }
+}
+
+.header-options-items a {
+    color: black;
+}
+
+.header-user-name:hover {
+    cursor: pointer;
+    color: var(--primary);
 }

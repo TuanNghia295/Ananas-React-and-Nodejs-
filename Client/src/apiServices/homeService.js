@@ -69,15 +69,33 @@ export const login = async (acc_email, acc_pass) => {
         };
         // Thực hiện yêu cầu POST đến máy chủ để kiểm tra đăng nhập
         const response = await request.post('/login/info', loginData);
-        if (response.success) {
-            request.get('/');
-            // alert('Login success');
-        } else {
-            alert('Error login');
-        }
         return response;
     } catch (error) {
         console.error('Lỗi khi gửi yêu cầu đăng nhập:', error);
         throw error;
+    }
+};
+
+// Hàm Register
+
+export const register = async (acc_email, acc_pass, acc_name) => {
+    try {
+        const registerData = {
+            acc_email,
+            acc_pass,
+            acc_name,
+        };
+        // thực hiện yêu cầu post đến máy chủ để kiểm tra đăng ký
+        const response = await request.post('/login/create', registerData);
+        if (response.exist) {
+            console.log(response.error);
+        } else if (response.passInvalid) {
+            console.log(response.error);
+        } else if (response.canCreate) {
+            console.log(response.message);
+        }
+        return response;
+    } catch (error) {
+        console.log('Lỗi đăng ký', error);
     }
 };

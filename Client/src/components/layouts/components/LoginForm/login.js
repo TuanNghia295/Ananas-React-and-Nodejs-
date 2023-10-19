@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import classNames from 'classnames/bind';
 import styles from './login.module.scss';
-import { Link } from 'react-router-dom';
 import Button from '~/components/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import * as homeService from '~/apiServices/homeService';
 import { useDebounce } from '~/components/hooks';
 import { useNavigate } from 'react-router-dom';
+import FormValidate from './formValidate';
 
 const cx = classNames.bind(styles);
 
-function LoginForm() {
+function Login() {
     const [isSignUpActive, setIsSignUpActive] = useState(false);
 
     // confirm info
@@ -19,12 +19,12 @@ function LoginForm() {
 
     const [emailValue, setEmailValue] = useState('');
     const [password, setPasswords] = useState('');
-
     const [name, setName] = useState('');
-    const nameRef = useRef();
 
     const emailDebounce = useDebounce(emailValue, 500);
     const passDebounce = useDebounce(password, 500);
+    const nameDebounce = useDebounce(name, 500);
+
     const [errorVisible, setErrorVisible] = useState(false);
 
     // use useNavigate to programmatically change the browser's URL
@@ -34,6 +34,7 @@ function LoginForm() {
     useEffect(() => {
         const list = async () => {
             const result = await homeService.getAccountList();
+            console.log(result);
             setAccount(result);
         };
         list();
@@ -41,35 +42,32 @@ function LoginForm() {
 
     // Handle click btn signin and sign up
     const handleSignUpClick = (e) => {
-        e.preventDefault();
+        setEmailValue('');
+        setPasswords('');
         setIsSignUpActive(true);
     };
 
     const handleSignInClick = (e) => {
-        e.preventDefault();
         setIsSignUpActive(false);
+        setEmailValue('');
+        setPasswords('');
     };
 
     // Handle Sigin Submit
+    // Trong file login.js
     const handleSignInSubmit = async () => {
         try {
-            if (!emailDebounce || !passDebounce) {
-                console.log('Email hoặc mật khẩu không hợp lệ');
-                return;
-            }
-
             const response = await homeService.login(emailDebounce, passDebounce);
             if (response && response.success) {
                 // Đăng nhập thành công
                 alert('Đăng nhập thành công');
-                // Thực hiện các thao tác sau khi đăng nhập thành công (ví dụ: chuyển hướng)
+
+                // Thực hiện chuyển hướng về trang chủ
                 navigate('/');
             } else {
                 // Đăng nhập thất bại
-                console.log('Đăng nhập thất bại');
                 // Display an error message to the user if success is false
                 if (!response.success) {
-                    console.log('Error:', response.message);
                     // Show the error message to the user
                     setErrorVisible(true);
                 }
@@ -80,7 +78,17 @@ function LoginForm() {
     };
 
     // Handle Register Form
-
+    const handleSignUpSubmit = async () => {
+        try {
+            const response = await homeService.register(emailDebounce, passDebounce, nameDebounce);
+            if (response.canCreate) {
+                alert('success registration');
+                navigate('/');
+            }
+        } catch (error) {
+            console.log('Error registering', error);
+        }
+    };
     // handle getAccount value
     const handleGetAccountValue = useCallback(
         (e) => {
@@ -91,7 +99,7 @@ function LoginForm() {
                 setEmailValue('');
             }
         },
-        [emailDebounce],
+        [emailDebounce], // Thay thế [emailValue] bằng [emailDebounce]
     );
 
     const handleGetPasswordValue = useCallback(
@@ -106,71 +114,34 @@ function LoginForm() {
         [passDebounce],
     );
 
+    const handleGetNameValue = useCallback(
+        (e) => {
+            const nameVal = e.target.value;
+            if (!nameVal.startsWith(' ')) {
+                setName(nameVal);
+                console.log('did get name');
+            } else {
+                setName('');
+            }
+        },
+        [nameDebounce],
+    );
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')} id="container">
-                <div className={cx('form-container', { 'sign-up-container': isSignUpActive })}>
-                    <div className={cx('form-signUp-signIn')}>
-                        <h1>{isSignUpActive ? 'Sign up' : 'Sign in'}</h1>
-                        <div className={cx('social-container')}>
-                            <Link to={'#'} className={cx('social')}>
-                                <FontAwesomeIcon className={cx('face-icon')} icon={faFacebook} />
-                            </Link>
-                            <Link to={'#'} className={cx('social')}>
-                                <FontAwesomeIcon className={cx('ins-icon')} icon={faInstagram} />
-                            </Link>
-                            <Link to={'#'} className={cx('social')}>
-                                <FontAwesomeIcon className={cx('gg-icon')} icon={faGoogle} />
-                            </Link>
-                        </div>
-                        <span>or use your email for registration</span>
-                        {isSignUpActive && (
-                            <input
-                                type="text"
-                                placeholder="Name"
-                                name="acc_name"
-                                className={cx('inputPlace')}
-                            />
-                        )}
-                        <input
-                            value={emailValue}
-                            type="email"
-                            placeholder="Email"
-                            className={cx('inputPlace')}
-                            name="acc_email"
-                            onChange={handleGetAccountValue}
-                        />
-                        <input
-                            value={password}
-                            type="password"
-                            placeholder="Password"
-                            className={cx('inputPlace')}
-                            autoComplete="currentPassword"
-                            name="acc_pass"
-                            onChange={handleGetPasswordValue}
-                        />
-
-                        {errorVisible && (
-                            <p className={cx('warning')}>Username or password invalid</p>
-                        )}
-                        {isSignUpActive ? (
-                            <Button className={cx('signUp-btn')} primary>
-                                Sign Up
-                            </Button>
-                        ) : (
-                            <>
-                                <Link to={'#'}>Forgot your password?</Link>
-                                <Button
-                                    className={cx('signIn-btn')}
-                                    primary
-                                    onClick={handleSignInSubmit}
-                                >
-                                    Sign in
-                                </Button>
-                            </>
-                        )}
-                    </div>
-                </div>
+                <FormValidate
+                    isSignUpActive={isSignUpActive}
+                    errorVisible={errorVisible}
+                    nameValue={name}
+                    passValue={password}
+                    emailValue={emailValue}
+                    onGetNameValue={handleGetNameValue}
+                    onGetPassValue={handleGetPasswordValue}
+                    onGetAccountValue={handleGetAccountValue}
+                    handleSignUp={handleSignUpSubmit}
+                    handleSingIn={handleSignInSubmit}
+                />
                 <div className={cx('overlay-container', { 'right-panel-active': isSignUpActive })}>
                     <div className={cx('overlay')}>
                         {isSignUpActive ? (
@@ -209,4 +180,4 @@ function LoginForm() {
     );
 }
 
-export default LoginForm;
+export default Login;

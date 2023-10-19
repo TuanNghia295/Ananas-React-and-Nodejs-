@@ -2,31 +2,51 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBoxArchive, faCartShopping, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faHeart, faUser } from '@fortawesome/free-regular-svg-icons';
 import routes from '~/config/routes';
-import { Link } from 'react-router-dom';
-
+import { Link, Navigate } from 'react-router-dom';
+import classNames from 'classnames/bind';
+import styles from '~/components/layouts/components/Header/Header.module.scss';
+import Button from '~/components/Button';
+const cx = classNames.bind(styles);
 const headerData = [
     {
         id: 1,
         icon: <FontAwesomeIcon icon={faBoxArchive} />,
-        title: 'Tra cứu đơn hàng',
+        title: { titlehead: 'Tra cứu đơn hàng' },
         link: routes.oderSearch,
     },
     {
         id: 2,
         icon: <FontAwesomeIcon icon={faHeart} />,
-        title: 'Yêu thích',
+        title: { titlehead: 'Yêu thích' },
         link: routes.love,
     },
     {
         id: 3,
         icon: <FontAwesomeIcon icon={faCartShopping} />,
-        title: 'Giỏ Hàng',
+        title: { titlehead: 'Giỏ Hàng' },
         link: routes.cart,
     },
     {
         id: 4,
         icon: <FontAwesomeIcon icon={faUser} />,
-        title: 'Đăng nhập',
+        title: { titlehead: 'Đăng nhập', isLogin: false },
+        option: [
+            {
+                id: 1,
+                title: 'Your Profile',
+                link: routes.promotion,
+            },
+            {
+                id: 2,
+                title: 'Langauge',
+                link: routes.faqs,
+            },
+            {
+                id: 3,
+                title: 'Log out',
+                link: routes.home,
+            },
+        ],
         link: routes.login,
     },
 ];

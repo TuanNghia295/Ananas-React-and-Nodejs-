@@ -20,8 +20,25 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.cjs';
 import 'tippy.js/themes/light.css';
 import 'tippy.js/animations/perspective.css';
+import Tippy from '@tippyjs/react/headless';
 const cx = classNames.bind(styles);
-function Header() {
+function Header({ onLoginSuccess }) {
+    const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+    const [userName, setUserName] = useState('');
+
+    const handleLoginSuccess = (userName) => {
+        // Xử lý tên người dùng ở đây, ví dụ: cập nhật state
+        // hoặc thực hiện các hành động khác
+        console.log('Đăng nhập thành công với tên người dùng:', userName);
+    };
+    const handleLogin = (name) => {
+        setIsUserLoggedIn(true);
+        setUserName(name);
+        if (onLoginSuccess) {
+            onLoginSuccess(name);
+        }
+    };
+
     // SlideBar
     const [slide, setSlide] = useState(slideBarData);
     const [index, setIndex] = useState(0);
@@ -108,10 +125,50 @@ function Header() {
                 {headerData.map((item) => {
                     return (
                         <li key={item.id} className={cx('header-items')}>
-                            <Link to={item.link}>
-                                <i className={cx('head-icons')}>{item.icon}</i>
-                                <span className={cx('head-title')}>{item.title}</span>
-                            </Link>
+                            <div className={cx('header-link')}>
+                                <i className={cx('head-icons')}>
+                                    {isUserLoggedIn ? (
+                                        <div className={cx('head-user-icon')}>{userName}</div>
+                                    ) : (
+                                        <Link to={item.link}>{item.icon}</Link>
+                                    )}
+                                </i>
+                                <span className={cx('head-title')}>
+                                    {item.title.isLogin ? (
+                                        <>
+                                            <Tippy
+                                                interactive={true}
+                                                className={cx('toggle-options')}
+                                                placement={'bottom'}
+                                                render={(attrs) => (
+                                                    <div
+                                                        className={cx('header-options-container')}
+                                                        {...attrs}
+                                                    >
+                                                        {item.option.map((value) => (
+                                                            <Link
+                                                                to={value.link}
+                                                                className={cx(
+                                                                    'header-options-items',
+                                                                )}
+                                                                key={value.id}
+                                                            >
+                                                                {value.title}
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            >
+                                                <p className={cx('header-user-name')}>Tên user</p>
+                                            </Tippy>
+                                        </>
+                                    ) : (
+                                        <div className={cx('items-header-title-link')}>
+                                            <Link to={item.link}>{item.title.titlehead}</Link>
+                                        </div>
+                                    )}
+                                </span>
+                            </div>
                         </li>
                     );
                 })}
